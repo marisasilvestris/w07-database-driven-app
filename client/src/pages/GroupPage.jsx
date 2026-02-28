@@ -6,7 +6,9 @@ export default function GroupPage() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const res = await fetch(`http://localhost:9001/posts/`);
+      const res = await fetch(
+        `https://w07-database-driven-app.onrender.com/posts/`,
+      );
       const data = await res.json();
       setPosts(data);
     }
