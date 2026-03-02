@@ -18,7 +18,9 @@ app.get(`/`, (req, res) => {
 
 app.get(`/posts`, async (req, res) => {
   try {
-    const posts = (await db.query(`select * from posts`)).rows;
+    const posts = (
+      await db.query(`select * from posts order by date desc, time desc`)
+    ).rows;
     res.json(posts);
   } catch (e) {
     res.send(`connection error!`, { error: e.message });
@@ -30,10 +32,10 @@ app.get(`/posts`, async (req, res) => {
 app.get(`/posts/:id`, async (req, res) => {
   try {
     const postsData = (
-      await db.query(`SELECT * FROM posts WHERE id = $1`, [req.params.id])
+      await db.query(`select  * from posts where id = $1`, [req.params.id])
     ).rows;
     res.status(200).json(postsData);
-    console.log("individual post request");
+    console.log(`individual post request: ${req.params.id}`);
   } catch (e) {
     res.send(`connection error!`, { error: e.message });
   }
@@ -43,13 +45,8 @@ app.post(`/posts`, async (req, res) => {
   const submissionData = req.body;
   try {
     const dbQuery = await db.query(
-      `INSERT INTO posts (name, title, category, body, brief) VALUES ($1, $2, $3, $4, $5)`,
-      [
-        submissionData.title,
-        submissionData.body,
-        submissionData.tags,
-        submissionData.colour,
-      ],
+      `insert into posts (title, body, colour, date, time) values ($1, $2, $3, current_date, current_time)`,
+      [submissionData.title, submissionData.body, submissionData.colour],
     );
 
     res.send(`POST requested to /posts successfully:<br/>${submissionData}`);
@@ -60,7 +57,7 @@ app.post(`/posts`, async (req, res) => {
 
 app.get(`/refresh`, async (req, res) => {
   try {
-    const posts = await db.query(`truncate table posts;
+    const posts = await db.query(`
         create table if not exists posts (
   id int primary key generated always as identity,
   title text,

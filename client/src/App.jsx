@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router";
 import "./App.css";
 import Header from "./components/Header";
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="flex flex-col w-full grow align-self-center gap-5">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/posts" element={<GroupPage />} />

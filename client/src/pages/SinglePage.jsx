@@ -3,15 +3,15 @@ import Note from "../components/Note";
 import { useParams } from "react-router";
 
 export default function SinglePage() {
-  const { id } = useParams();
-
   const [post, setPost] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     async function fetchPost() {
-      const res = await fetch(
-        `https://w07-database-driven-app.onrender.com/posts/${id}`,
-      );
+      const res = await fetch(`http://localhost:9001/posts/${id}`);
+      console.log(res);
+
+      // const res = await fetch(`https://w07-database-driven-app.onrender.com/posts/${id}`);
       const data = await res.json();
       setPost(data[0]);
     }
@@ -21,7 +21,13 @@ export default function SinglePage() {
 
   return (
     <>
-      <Note data={post} />
+      <div className="place-items-center">
+        {post ? (
+          <Note data={post} className={`h-128 w-128`} />
+        ) : (
+          `No note found!`
+        )}
+      </div>
     </>
   );
 }

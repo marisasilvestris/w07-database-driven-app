@@ -1,9 +1,8 @@
 export default function Footer() {
   return (
     <>
-      <footer>
-        <div className="left"></div>
-        <div className="right"></div>
+      <footer className="w-full border-t border-t-(--border)">
+        <p>hello i am a footer</p>
       </footer>
     </>
   );
