@@ -8,7 +8,10 @@ export default function SinglePage() {
 
   useEffect(() => {
     async function fetchPost() {
-      const res = await fetch(`http://localhost:9001/posts/${id}`);
+      // const res = await fetch(`http://localhost:9001/posts/${id}`);
+      const res = await fetch(
+        `https://w07-database-driven-app.onrender.com/posts/${id}`,
+      );
       console.log(res);
 
       // const res = await fetch(`https://w07-database-driven-app.onrender.com/posts/${id}`);

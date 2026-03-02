@@ -7,14 +7,17 @@ export default function SubmitNote({ className }) {
     const formData = new FormData(form);
     const userInput = Object.fromEntries(formData);
     const userInputJSON = JSON.stringify(userInput);
-
-    const response = await fetch(`http://localhost:9001/posts`, {
-      headers: {
-        "Content-Type": "application/json",
+    // const response = await fetch(`http://localhost:9001/posts`, {
+    const response = await fetch(
+      `https://w07-database-driven-app.onrender.com/posts`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: userInputJSON,
       },
-      method: "POST",
-      body: userInputJSON,
-    });
+    );
     const res = await response.json();
 
     window.location.reload();
