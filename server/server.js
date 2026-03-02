@@ -16,30 +16,30 @@ app.get(`/`, (req, res) => {
   res.status(200).send(`GET requested to / successfully`);
 });
 
-// app.get(`/posts`, async (req, res) => {
-//   try {
-//     const posts = (
-//       await db.query(`select * from posts order by date desc, time desc`)
-//     ).rows;
-//     res.json(posts);
-//   } catch (e) {
-//     res.send(`connection error!`, { error: e.message });
-//   }
-// });
+app.get(`/posts`, async (req, res) => {
+  try {
+    const posts = (
+      await db.query(`select * from posts order by date desc, time desc`)
+    ).rows;
+    res.json(posts);
+  } catch (e) {
+    res.send(`connection error!`, { error: e.message });
+  }
+});
 
 // Individual posts page
 // GET to /posts/<posts id> to get only those items
-// app.get(`/posts/:id`, async (req, res) => {
-//   try {
-//     const postsData = (
-//       await db.query(`select  * from posts where id = $1`, [req.params.id])
-//     ).rows;
-//     res.status(200).json(postsData);
-//     console.log(`individual post request: ${req.params.id}`);
-//   } catch (e) {
-//     res.send(`connection error!`, { error: e.message });
-//   }
-// });
+app.get(`/posts/:id`, async (req, res) => {
+  try {
+    const postsData = (
+      await db.query(`select  * from posts where id = $1`, [req.params.id])
+    ).rows;
+    res.status(200).json(postsData);
+    console.log(`individual post request: ${req.params.id}`);
+  } catch (e) {
+    res.send(`connection error!`, { error: e.message });
+  }
+});
 
 app.post(`/posts`, async (req, res) => {
   const submissionData = req.body;
