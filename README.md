@@ -46,5 +46,6 @@ thanks, as always, to MDN.
 not good with react still  
 doubly so for react router  
 triply so for anything database-related
+submitnote does not work from homepage. pulling it out for now.
 
 marisa 🐈‍⬛
