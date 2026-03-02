@@ -1,4 +1,4 @@
-export default function SubmitNote() {
+export default function SubmitNote({ className }) {
   const form = document.getElementById(`submitForm`);
 
   async function submitHandle(e) {
@@ -26,26 +26,26 @@ export default function SubmitNote() {
   return (
     <>
       <div
-        className={`border border-(--border) note vanilla mx-auto min-w-75 min-h-75`}
+        className={`border bg-[#fdf4cc] border-[#f287b3] text-[#f287b3] rounded-sm overflow-hidden mx-auto min-w-75 min-h-fit shadow-[5px_5px_5px_#00000030] ${className}`}
       >
         <form
           name="submitForm"
           id="submitForm"
-          className="p-3 flex flex-col place-content-between h-full"
+          className="p-3 flex flex-col gap-3 place-content-between "
         >
           <div className="flex gap-2">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">title</label>
             <input
               id="formTitle"
               name="title"
               type="text"
-              placeholder="note title"
+              placeholder="gimme a name"
               className="grow"
               required
             />
           </div>
           <div className="flex gap-2">
-            <label htmlFor="colour">Colour</label>
+            <label htmlFor="colour">colour</label>
             <select id="noteColour" name="colour" className="grow">
               <option
                 name="rating"
@@ -91,12 +91,12 @@ export default function SubmitNote() {
           </div>
 
           <div className="flex gap-2">
-            <label htmlFor="body">Text</label>
+            <label htmlFor="body">text</label>
             <textarea
               id="noteBody"
               name="body"
-              placeholder="type ur review here pls!"
-              className="grow min-h-32"
+              placeholder="all of ur dreams go here"
+              className="grow min-h-32 field-sizing-content"
               required
             ></textarea>
           </div>

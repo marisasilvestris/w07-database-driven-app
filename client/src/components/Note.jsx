@@ -10,10 +10,11 @@ export default function Note({ className, data }) {
   return (
     <Link
       to={`/posts/${data.id}`}
-      className={`flex flex-col size-full border border-[rgb(95,99,104)] rounded-sm text-[rgb(232,234,237)] note justify-between ${data.colour} ${className}`}
+      className={`flex flex-col size-full border border-[rgb(95,99,104)] rounded-sm overflow-hidden text-[rgb(232,234,237)] note justify-between ${data.colour} ${className}`}
     >
       <h3 className="p-2 note-top flex justify-between border-b border-[rgb(95,99,104)] text-[rgb(232,234,237)]">
         {data.title}
+        <span>#{data.id}</span>
       </h3>
       <div className="note-body overflow-hidden">
         <p className="whitespace-pre-line">{data.body}</p>

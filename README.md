@@ -33,7 +33,7 @@ nah. struggling.
 
 doesn't help that any time i see the "allow users to delete posts" or "add 'like' functionality" i get too caught up in trying to add a user system, a thing i don't know how to do. like if i allow any user to delete a post that seems icky to me, and a like system needs some way to keep likes unique otherwise you could just keep liking a post every time you refresh the page. i don't wanna allow either of those things! getting ahead of myself, and getting too upset that i can't make it work, but i really need to be able to do this. don't know what to do, i can't imagine any other job i could do but programming, but my brain doesn't cope and the vast majority of the industry seems evil. what do you even do with that?
 
-on a lighter note, i like the ice cream palette i found on lospec. if you add some tag functionality, a delete route, and some drag-and-drop you could get a useable app out of this thing. one day
+on a lighter note, i like the ice cream palette i found on lospec. if you add some tag functionality, a delete route, and some drag-and-drop you could get a useable app out of this thing. one day. enjoy the recipe and horse gameshow rounds pulled from my irl google keep notes.
 
 ### Thanks to/image credits
 

@@ -23,7 +23,7 @@ export default function SinglePage() {
     <>
       <div className="place-items-center">
         {post ? (
-          <Note data={post} className={`h-128 w-128`} />
+          <Note data={post} className={`h-128 w-128 max-w-screen`} />
         ) : (
           `No note found!`
         )}
