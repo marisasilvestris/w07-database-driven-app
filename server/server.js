@@ -41,6 +41,19 @@ app.get(`/posts/:id`, async (req, res) => {
   }
 });
 
+app.delete(`/posts/:id`, async (req, res) => {
+  const submissionData = req.body;
+  try {
+    const dbQuery = await db.query(`delete from posts where id = $1`, [
+      submissionData.id,
+    ]);
+
+    res.send(`DELETE requested to /posts successfully:<br/>${submissionData}`);
+  } catch (e) {
+    res.send(`connection error!`, { error: e.message });
+  }
+});
+
 app.post(`/posts`, async (req, res) => {
   const submissionData = req.body;
   try {
