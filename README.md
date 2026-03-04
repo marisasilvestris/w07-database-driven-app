@@ -1,4 +1,4 @@
-# w06-react-image-slider
+# w07-database-driven-app
 
 > emoji toolbox  
 > 🐈‍⬛🟢🟠🔴
